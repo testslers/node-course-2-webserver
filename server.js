@@ -24,9 +24,9 @@ app.use((request, response, next) => {
     next();
 });
 
-app.use((request, response, next) => {
-    response.render('maintenance.hbs');
-});
+// app.use((request, response, next) => {
+//     response.render('maintenance.hbs');
+// });
 
 app.use(express.static(__dirname + '/public')); // static help.html page
 
@@ -78,6 +78,16 @@ app.get('/maintenance', (request, response) => {
             pageTitle: 'Maintenance'
         });
 });
+
+
+app.get('/projects', (request, response) => {
+    response.render('projects.hbs',
+        {
+            pageTitle: 'Projects'
+        });
+});
+
+
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
